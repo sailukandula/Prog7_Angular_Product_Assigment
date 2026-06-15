@@ -1,0 +1,16 @@
+<p>add-product works!</p>
+<h2>Add Product</h2>
+
+<form (ngSubmit)="save()">
+  <input [(ngModel)]="product.id" name="id" placeholder="ID">
+  <input [(ngModel)]="product.name" name="name" placeholder="Name">
+  <input [(ngModel)]="product.price" name="price" placeholder="Price">
+
+  <select [(ngModel)]="product.type" name="type">
+    <option value="electronics">Electronics</option>
+    <option value="food">Food</option>
+    <option value="clothes">Clothes</option>
+  </select>
+
+  <button type="submit">Save</button>
+</form>
