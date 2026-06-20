@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import{ FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-edit-product',
@@ -19,7 +20,9 @@ export class EditProduct {
   constructor(
     private productService: ProductService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
+    
   ) {}
 
   ngOnInit() {
@@ -28,6 +31,7 @@ export class EditProduct {
     this.productService.getProductById(id).subscribe(data => {
       this.product = data;
       console.log("API update returned:",this.product);
+       this.cdr.detectChanges();
     });
   }
 
